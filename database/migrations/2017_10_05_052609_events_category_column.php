@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class EventsCatagoryColumn extends Migration
+class EventsCategoryColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class EventsCatagoryColumn extends Migration
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->string('type');
+            $table->string('category');
         });
     }
 
@@ -25,7 +25,7 @@ class EventsCatagoryColumn extends Migration
     public function down()
     {
         Schema::table('events', function(Blueprint $table) {
-            $table->dropColumn('type');
+            $table->dropColumn('category');
         });
     }
 }
