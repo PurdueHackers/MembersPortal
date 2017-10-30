@@ -1,7 +1,7 @@
 @extends("app")
 
 @section("page-title")
-{{ $member->name }} - 
+{{ $member->name }} -
 @stop
 
 @section("content")
@@ -10,7 +10,7 @@
 	<h3>Member - {{ $member->name }}
 		<a href="{{ action('MemberController@getMember', $member->username) }}" class="pull-left"><button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Profile</button></a>
 	</h3>
-	
+
 	<div class="panel panel-default">
 		<form method="post" action="{{ $member->profileURL() }}" enctype="multipart/form-data" class="panel-body validate">
 			<p class="text-muted text-center">Fields marked with an * are required</p>
@@ -102,6 +102,9 @@
 			<a href="{{ $member->resumePath() }}" class="form-control">{{ $member->resume }}</a>
 			@endif
 			<input type="file" name="resume" id="resume" class="form-control">
+			<br>
+			<label for="linktoresume">Link to Resume</label>
+			<input type="text" name="linktoresume" id="linktoresume" placeholder="Link to Resume" value="{{ $member->linktoresume }}" class="form-control" data-bvalidator="url" data-bvalidator-msg="Please enter a valid URL to your Resume.">
 			<br>
 			@if (!isset($setPassword))
 				@if (Gate::allows('permission', 'members'))

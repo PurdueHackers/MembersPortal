@@ -1,13 +1,13 @@
 @extends("app")
 
 @section("page-title")
-{{ $member->name }} - 
+{{ $member->name }} -
 @stop
 
 @section("description")
-	{{ $member->name }} - 
+	{{ $member->name }} -
 	@if ($member->graduation_year)
-		{{ $member->major ? $member->major->name:"" }} Class of {{ $member->graduation_year }} - 
+		{{ $member->major ? $member->major->name:"" }} Class of {{ $member->graduation_year }} -
 	@endif
 	Attended {{ count($member->events) }} Events, and has {{ count($member->projects) }} Projects and {{ count($locations) }} Jobs.
 	{{ $member->description ? $member->description:"" }}
@@ -22,7 +22,7 @@
 		<a href="{{ action('ProjectController@getIndex') }}" class="pull-left"><button type="button" class="btn btn-primary btn-sm">Projects</button></a>
 		@endif
 	</h3>
-	
+
 	<div class="panel panel-default text-left">
 		<div class="panel-body">
 			@if ($member->picture)
@@ -44,7 +44,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	@if ($member->description)
 	<div class="panel panel-default text-left">
 		<div class="panel-body">
@@ -52,8 +52,8 @@
 		</div>
 	</div>
 	@endif
-	
-	@if ($member->facebook || $member->github || $member->linkedin || $member->devpost || $member->website)
+
+	@if ($member->facebook || $member->github || $member->linkedin || $member->devpost || $member->website || $member->linktoresume)
 	<div class="panel panel-default text-left">
 		<div class="panel-body">
 			@if ($member->facebook)
@@ -71,12 +71,15 @@
 			@if ($member->website)
 			<b>Personal Website:</b> <a href="{{ $member->website }}" target="_blank">{{ $member->website }}</a><br>
 			@endif
+			@if ($member->linktoresume)
+			<b>Link to Resume:</b> <a href="{{ $member->linktoresume }}" target="_blank">{{ $member->linktoresume }}</a><br>
+			@endif
 		</div>
 	</div>
 	@endif
-	
+
 	<hr>
-	
+
 	<h3>Job History</h3>
 	<div class="panel panel-default">
 		<table class="table table-bordered table-hover table-clickable panel-body">
@@ -108,7 +111,7 @@
 				<td></td>
 			</tr>
 		@endforelse
-		
+
 		@if (Gate::allows('member-matches', $member) || Gate::allows('permission', 'members'))
 		<form method="post" action="{{ action('LocationController@postCreate', $member->id) }}" class="panel-body validate">
 			{!! csrf_field() !!}
@@ -123,13 +126,13 @@
 			</tr>
 		</form>
 		@endif
-		
+
 		</tbody>
 		</table>
 	</div>
-	
+
 	<hr>
-	
+
 	<h3>Events Attended</h3>
 	<div class="panel panel-default">
 		<table class="table table-bordered table-hover table-clickable panel-body">
