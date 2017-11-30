@@ -106,6 +106,7 @@ class MemberController extends BaseController
         $linkedin = $request->input('linkedin');
         $devpost = $request->input('devpost');
         $website = $request->input('website');
+        $linktoresume = $request->input('linktoresume');
 
         // Verify Input
         if (is_null($member)) {
@@ -149,6 +150,7 @@ class MemberController extends BaseController
         $member->linkedin = $linkedin;
         $member->devpost = $devpost;
         $member->website = $website;
+        $member->linktoresume = $linktoresume;
 
         // Picture
         if ($request->hasFile('picture')) {
