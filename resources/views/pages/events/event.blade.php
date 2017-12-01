@@ -1,7 +1,7 @@
  @extends("app")
 
 @section("page-title")
-{{ $event->nameShort() }} - 
+{{ $event->nameShort() }} -
 @stop
 
 @section("content")
@@ -9,7 +9,7 @@
 <div class="section"><div class='section-container'>
 	<h3>{{ $event->nameShort() ?: "Create Event" }}
 		@if ($event->id != 0)
-		
+
 		@can ('permission', 'events')
 			<a href="{{ action('ReportsController@getEvent', $event->id) }}" class="pull-left marginR"><button type="button" class="btn btn-primary btn-sm">Graphs</button></a>
 			@if (count($applications))
@@ -32,10 +32,10 @@
 				@endif
 			@endif
 		@endcan
-		
+
 		@endif
 	</h3>
-	
+
 	@can ('permission', 'events') {{-- Edit Event --}}
 	<div class="panel panel-default">
 		<form method="post" action="{{ action('EventController@postEvent', $event->id) }}" class="panel-body validate">
@@ -92,20 +92,23 @@
 				@if ($event->facebook)
 				<a href="{{ $event->facebook }}"><br>{{ $event->facebook }}</a><br>
 				@endif
+
+                @can ('permission', 'events')
 				@if (count($members) > 0)
 				<div id="profile_badges">
 					<div class="profile_badge"><div class="profile_badge_title">Attendees</div>{{ count($members) }}</div>
 				</div>
 				@endif
+                @endcan
 			</div>
 		</div>
 	</div>
 	@endcan
-	
+
 	@if (count($members) > 0)
-	
+
 	<hr>
-	
+
 	<h3>Members Attended</h3>
 	<div class="panel panel-default">
 		<table class="table table-bordered table-hover table-clickable panel-body sortableTable">
@@ -139,9 +142,9 @@
 			</tbody>
 		</table>
 	</div>
-	
+
 	@endif
-	
+
 	@if (Gate::allows('permission', 'events') && $event->id != 0)
 	<a href="{{ action('EventController@getDelete', $event->id) }}" class="pull-right marginR"><button type="button" class="btn btn-danger btn-sm">Delete Event</button></a>
 	@endif

@@ -78,7 +78,7 @@ body {
 
 #pageWrap { /* Pushes footer to bottom */
 	min-height: 100%;
-	margin-bottom: -220px; 
+	margin-bottom: -220px;
 }
 
 #pageWrap:after {
@@ -455,7 +455,7 @@ td:last-child {
 .table-clickable tbody tr:hover {
 	cursor: pointer;
 }
-  
+
   /* Utilities
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .u-full-width {
@@ -477,7 +477,7 @@ hr {
   margin-bottom: 3.5rem;
   border-width: 0;
   border-top: 1px solid #E1E1E1; }
-  
+
 .member-icon {
 	max-width: 100px;
 	max-height: 100px;
@@ -496,7 +496,7 @@ hr {
 	color: #000000;
 	text-shadow: none;
 }
-  
+
 
 /* ------------------------ Graphs ------------------------- */
 
