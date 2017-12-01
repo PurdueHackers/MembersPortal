@@ -17,7 +17,9 @@
 					<th>Name</th>
 					<th>Date</th>
 					<th>Location</th>
+					@can ('permission', 'events')
 					<th># Attended</th>
+					@endcan
 				</tr>
 			</thead>
 			<tbody>
@@ -26,7 +28,9 @@
 			    	<td>{{ $event->name }}</td>
 					<td>{{ $event->event_time->format('M j, Y') }}</td>
 			    	<td>{{ $event->location }}</td>
+					@can ('permission', 'events')
 			    	<td>{{ count($event->members) }}</td>
+					@endcan
 			    </tr>
 			@endforeach
 			</tbody>
