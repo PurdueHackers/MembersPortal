@@ -11,6 +11,6 @@ class ExampleTest extends TestCase
     public function testBasicExample()
     {
         $this->visit('/')
-             ->see('home');
+             ->see('Who Are We?');
     }
 }
