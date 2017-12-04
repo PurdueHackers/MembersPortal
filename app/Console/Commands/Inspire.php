@@ -26,7 +26,8 @@ class Inspire extends Command
      *
      * @return mixed
      */
-    public function handle(){
-        $this->output->writeln("Inspirational Quote: " . PHP_EOL.Inspiring::quote().PHP_EOL);
+    public function handle()
+    {
+        $this->comment(PHP_EOL.Inspiring::quote().PHP_EOL);
     }
 }
