@@ -11,6 +11,7 @@ before_script:
   - php artisan migrate --seed
   - mkdir -p storage/framework/sessions
   - mkdir -p storage/framework/views
+  - mkdir -p storage/framework/cache
 script:
   - vendor/bin/phpunit --verbose --coverage-text --coverage-clover=coverage.xml
 after_success:
