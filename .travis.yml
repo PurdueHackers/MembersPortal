@@ -7,7 +7,7 @@ before_script:
   - cp .env.travis .env
   - mysql -e 'create database purduehackers_test;'
   - composer self-update
-  - composer install --no-interaction
+  - composer install --verbose --no-interaction
   - php artisan migrate --seed
 script:
   - vendor/bin/phpunit --verbose --coverage-text --coverage-clover=coverage.xml
