@@ -1,5 +1,8 @@
 # Members Tracking Portal
 
+### Status
+[![Build Status](https://travis-ci.org/PurdueHackers/MembersPortal.svg?branch=revert-1-master)](https://travis-ci.org/PurdueHackers/MembersPortal)
+
 ## Synopsis
 
 A web application for clubs and organizations to manage their members and events. Members can create accounts and manage their profile (including name, contact info, links, projects, work, and events attended). The portal also includes an event management system, including registration, checkin, attendee messaging, and analytics.  
