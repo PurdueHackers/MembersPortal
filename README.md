@@ -1,7 +1,7 @@
 # Members Tracking Portal
 
 ### Status
-[![Build Status](https://travis-ci.org/PurdueHackers/MembersPortal.svg?branch=revert-1-master)](https://travis-ci.org/PurdueHackers/MembersPortal)
+[![Build Status](https://travis-ci.org/PurdueHackers/MembersPortal.svg?branch=master)](https://travis-ci.org/PurdueHackers/MembersPortal)
 
 ## Synopsis
 
